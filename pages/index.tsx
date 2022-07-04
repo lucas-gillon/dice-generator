@@ -1,5 +1,5 @@
+import Head from "next/head";
 import React from "react";
-import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 
 const Home: React.FC<{}> = () => {
@@ -17,33 +17,40 @@ const Home: React.FC<{}> = () => {
     console.log(randomNumber);
   };
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit} style={{ marginTop: "2em" }}>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <label>Choose a number :&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              </td>
-              <td>
-                <input
-                  className="message-input"
-                  type="text"
-                  placeholder="choose a number..."
-                  onChange={handleChange}
-                />
-              </td>
-              <td>
-                <Button className="send-button" onClick={handleSubmit}>
-                  Submit &rarr;
-                </Button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-      {visible ? <h1>{randomNumber}</h1> : ""}
-    </div>
+    <>
+      <Head>
+        <title>Dice Generator</title>
+        <meta name="description" content="This is a dice generator" />
+        <link rel="icon" href="/dice.png" />
+      </Head>
+      <div className="container">
+        <form onSubmit={handleSubmit} style={{ marginTop: "2em" }}>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <label>Choose a number :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </td>
+                <td>
+                  <input
+                    className="message-input"
+                    type="text"
+                    placeholder="choose a number..."
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <Button className="send-button" onClick={handleSubmit}>
+                    Submit &rarr;
+                  </Button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+        {visible ? <h1>{randomNumber}</h1> : ""}
+      </div>
+    </>
   );
 };
 
