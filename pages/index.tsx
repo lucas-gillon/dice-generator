@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 const Home: React.FC<{}> = () => {
   const [number, setNumber] = React.useState(0);
@@ -23,6 +23,17 @@ const Home: React.FC<{}> = () => {
         <meta name="description" content="This is a dice generator" />
         <link rel="icon" href="/dice.png" />
       </Head>
+      <Navbar bg="secondary" expand="lg">
+        <Container>
+          <Navbar.Brand href="/">Dice Generator</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            {/* <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+            </Nav> */}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <div className="container">
         <form onSubmit={handleSubmit} style={{ marginTop: "2em" }}>
           <table>
